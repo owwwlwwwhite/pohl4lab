@@ -1,0 +1,38 @@
+package transport
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+// АВТОБУСЫ
+
+type Bus struct {
+	Truck
+	passengerCapacity int
+}
+
+func NewBus(brand string, year int, vehicleType string, cargoCapacity int, passengerCapacity int) *Bus {
+	return &Bus{
+		Truck: *NewTruck(brand, year, vehicleType, cargoCapacity),
+		passengerCapacity: passengerCapacity,
+	}
+}
+
+func (b *Bus) AnnounceStop() {
+	announcements := []string{
+		"Осторожно, двери закрываются!",
+		"Следующая остановка - Центральная площадь",
+		"Пожалуйста, оплатите проезд",
+	}
+	fmt.Println(b.vehicleType + " " + b.brand + " объявляет: " + announcements[rand.Intn(len(announcements))])
+}
+
+func (b *Bus) TransportPassengers() {
+	fmt.Println(b.vehicleType + " " + b.brand + " перевозит пассажиров.")
+}
+
+func (b *Bus) GetPassengerCapacity() int {
+	return b.passengerCapacity
+}

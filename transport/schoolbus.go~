@@ -1,0 +1,51 @@
+package vehicle
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+// ШКОЛЬНЫЕ АВТОБУСЫ
+
+type SchoolBus struct {
+	Bus
+	schoolName string
+}
+
+func NewSchoolBus(brand string, year int, vehicleType string, cargoCapacity int, passengerCapacity int, schoolName string) *SchoolBus {
+	return &SchoolBus{
+		Bus: *NewBus(brand, year, vehicleType, cargoCapacity, passengerCapacity),
+		schoolName: schoolName,
+	}
+}
+
+func (s *SchoolBus) DriveKidsToSchool(){
+	if s.schoolName != "" { 
+		fmt.Println("Школьный автобус " + s.brand + " везет детей в школу " + s.schoolName)
+	} else {
+		fmt.Println("Школьный автобус " + s.brand + " везет детей в неизвестную школу")
+	}
+}
+
+func (s *SchoolBus) CheckSeatBelts() {
+	if rand.Intn(2) == 1 {
+		fmt.Println("В школьном автобусе " + s.brand + " все пристегнуты!")
+	} else {
+		fmt.Println("В школьном автобусе " + s.brand + " не все пристегнулись!")
+	}
+}
+
+func (s *SchoolBus) EmergencyStop() {
+	reasons := []string{
+		"ребенок выбежал на дорогу",
+		"пешеход переходит в неположенном месте",
+		"впереди авария",
+		"кошка перебегает дорогу",
+	}
+	fmt.Printf("Школьный автобус %s экстренно тормозит из-за %s\n", s.brand, reasons[rand.Intn(len(reasons))])
+}
+
+func (s *SchoolBus) GetSchoolName() string {
+	return s.schoolName
+}

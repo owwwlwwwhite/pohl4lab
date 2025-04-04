@@ -1,0 +1,38 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+	"example.com/transport"
+)
+
+// МЭЙН
+func main() {
+	rand.Seed(time.Now().UnixNano()) // Инициализация рандома
+
+	vehicle := transport.NewVehicle("Volvo", 2018, "Автомобиль")
+	vehicle.StartEngine()    
+	vehicle.Move()
+	vehicle.Stop()
+	
+	truck := transport.NewTruck("MAN", 2019, "Грузовик", 5000)
+	
+	truck.StartEngine()    
+	truck.LoadCargo()
+	truck.Move()    
+	truck.Stop()
+		
+	bus := transport.NewBus("Mercedes", 2020, "Автобус", 1000, 50)
+	
+	bus.StartEngine()    
+	bus.AnnounceStop()
+	bus.TransportPassengers()    
+	bus.Move()
+	bus.LoadCargo()    
+	bus.Stop()
+	  
+	fmt.Printf("Vehicle: %s, Year: %d, Type: %s\n", vehicle.GetBrand(), vehicle.GetYear(), vehicle.GetVehicleType())
+	fmt.Printf("Truck: %s, Year: %d, Type: %s, Capacity: %d\n", truck.GetBrand(), truck.GetYear(), truck.GetVehicleType(), truck.GetCargoCapacity())    
+	fmt.Printf("Bus: %s, Year: %d, Type: %s, Cargo: %d, Passengers: %d\n", bus.GetBrand(), bus.GetYear(), bus.GetVehicleType(), bus.GetCargoCapacity(), bus.GetPassengerCapacity())
+}

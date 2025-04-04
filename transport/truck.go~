@@ -1,0 +1,33 @@
+package transport
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+// ГРУЗОВИКИ
+type Truck struct {
+	Vehicle
+	cargoCapacity int
+}
+
+func NewTruck(brand string, year int, vehicleType string, cargoCapacity int) *Truck {
+	return &Truck{
+		Vehicle: *NewVehicle(brand, year, vehicleType),
+		cargoCapacity: cargoCapacity,
+	}
+}
+
+func (t *Truck) LoadCargo() {
+	success := rand.Intn(2)
+	if success == 1 {
+		fmt.Println(t.vehicleType + " " + t.brand + " успешно загрузил груз!")
+	} else {
+		fmt.Println(t.vehicleType + " " + t.brand + " не смог загрузить груз из-за перевеса.")
+	}
+}
+
+func (t *Truck) GetCargoCapacity() int {
+	return t.cargoCapacity
+}
