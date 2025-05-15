@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"math/rand"
 	"time"
-	"example.com/transport"
+	"example.com/bus"
+	"example.com/truck"
+	"example.com/vehicle"
 )
 
 // МЭЙН
@@ -33,6 +35,6 @@ func main() {
 	bus.Stop()
 	  
 	fmt.Printf("Vehicle: %s, Year: %d, Type: %s\n", vehicle.GetBrand(), vehicle.GetYear(), vehicle.GetVehicleType())
-	fmt.Printf("Truck: %s, Year: %d, Type: %s, Capacity: %d\n", truck.GetBrand(), truck.GetYear(), truck.vehicleType, truck.GetCargoCapacity())    
-	fmt.Printf("Bus: %s, Year: %d, Type: %s, Cargo: %d, Passengers: %d\n", bus.GetBrand(), bus.GetYear(), bus.vehicleType, bus.GetCargoCapacity(), bus.GetPassengerCapacity())
+	fmt.Printf("Truck: %s, Year: %d, Type: %s, Capacity: %d\n", truck.GetBrand(), truck.GetYear(), truck.GetVehicleType(), truck.GetCargoCapacity())    
+	fmt.Printf("Bus: %s, Year: %d, Type: %s, Cargo: %d, Passengers: %d\n", bus.GetBrand(), bus.GetYear(), bus.GetVehicleType(), bus.GetCargoCapacity(), bus.GetPassengerCapacity())
 }
