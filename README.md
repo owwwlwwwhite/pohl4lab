@@ -43,30 +43,30 @@
    git clone https://github.com/твой-логин/твой-репо.git
    cd твой-репо
 
-    (Если используешь модули Go) Инициализируй / скачай зависимости
+2. (Если используешь модули Go) Инициализируй / скачай зависимости
+   ```bash
+   go mod tidy
 
-go mod tidy
-
-Запусти программу
-
-go run main.go
+3. Запусти программу
+   ```bash
+   go run main.go
 
 Или собери исполняемый файл:
-
-    go build -o vehicle_app
-    ./vehicle_app
+   ```bash
+   go build -o vehicle_app
+   ./vehicle_app
+   ```
 
 Структура кода
-
-.
-├── main.go              # точка входа (func main)
-├── vehicle.go           # определения базовой структуры Vehicle и интерфейсов
-├── truck.go             # код для Truck
-├── bus.go               # код для Bus
-├── schoolbus.go         # код для SchoolBus
-└── README.md             # этот файл
-
-    Примечание: ты можешь разделить по файлам так, как тебе удобно — главное, чтобы логика была разделена понятно.
+   ```bash
+   .
+   ├── main.go              # точка входа (func main)
+   ├── vehicle.go           # определения базовой структуры Vehicle и интерфейсов
+   ├── truck.go             # код для Truck
+   ├── bus.go               # код для Bus
+   ├── schoolbus.go         # код для SchoolBus
+   └── README.md             # этот файл
+   ```
 
 Примеры использования
 
